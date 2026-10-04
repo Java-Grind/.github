@@ -1,81 +1,116 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaStudy · Community Map</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <meta name="description" content="Живая карта лабораторных Java Grind" />
+    <title>Java Grind — карта лабораторных</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <a class="brand" href="#"><span class="brand-mark">J</span><span>javastudy</span></a>
-        <div class="workspace"><span>COMMUNITY SPACE</span><button aria-label="Switch space">⌄</button></div>
-        <nav>
-          <a class="nav-item active" href="#map"><span>⌘</span> Learning map</a>
-          <a class="nav-item" href="#library"><span>▣</span> Repository library <b>24</b></a>
-          <a class="nav-item" href="#members"><span>◉</span> Members</a>
-          <a class="nav-item" href="#paths"><span>↗</span> Study paths</a>
-        </nav>
-        <div class="sidebar-bottom">
-          <div class="group-label">YOUR SPACE</div>
-          <a class="nav-item" href="#saved"><span>☆</span> Saved material</a>
-          <a class="nav-item" href="#notes"><span>▤</span> My notes</a>
-          <div class="user"><div class="avatar avatar-iris">MT</div><div><strong>Mykyta T.</strong><small>Level 4 learner</small></div><button>•••</button></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Java Grind — в начало">
+        <span class="brand-mark">J</span>
+        <span>Java Grind</span>
+      </a>
+      <nav aria-label="Основная навигация">
+        <a href="#map">Карта</a>
+        <a href="#contribute">Вклад</a>
+        <a class="github-link" href="https://github.com/Java-Grind" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> ЖИВАЯ КАРТА СООБЩЕСТВА</p>
+          <h1>Не курс.<br />А <em>следующий</em> опыт.</h1>
+          <p class="lead">Java Grind собирает небольшие лабораторные с работающим кодом, наблюдениями и вопросами, которые хочется проверить дальше.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#map">Открыть карту <span>↓</span></a>
+            <a class="button button-quiet" href="https://github.com/Java-Grind/.github/issues/new" target="_blank" rel="noreferrer">Предложить идею <span>↗</span></a>
+          </div>
         </div>
-      </aside>
 
-      <main>
-        <header class="topbar">
-          <div class="crumbs">COMMUNITY <span>/</span> LEARNING MAP</div>
-          <div class="top-actions"><button class="icon-button" aria-label="Notifications">◌</button><button class="invite">+ Invite learner</button></div>
-        </header>
+        <div class="signal-card" aria-label="Состояние карты">
+          <div class="signal-top"><span>СЕЙЧАС НА КАРТЕ</span><i></i></div>
+          <strong>01</strong>
+          <p>опубликованная<br />лабораторная</p>
+          <div class="signal-line"><span></span><b></b><span></span></div>
+          <small>карта растёт с каждым PR</small>
+        </div>
+      </section>
 
-        <section class="hero">
-          <div><p class="eyebrow">THE SHARED JAVA GARDEN</p><h1>Find your next<br /><em>idea to explore.</em></h1><p class="hero-copy">A living map of what our community is building, learning, and explaining together.</p></div>
-          <div class="hero-stats"><div><strong>148</strong><span>learning notes</span></div><div><strong>24</strong><span>linked repos</span></div><div><strong>61</strong><span>active learners</span></div></div>
-        </section>
+      <section class="map-section" id="map">
+        <div class="section-intro">
+          <p class="eyebrow">КАРТА</p>
+          <h2>Одна работа.<br />Несколько продолжений.</h2>
+          <p>Здесь показано только то, что уже есть, и действия, с которых может начаться следующая лабораторная.</p>
+        </div>
 
-        <section class="controls" aria-label="Topic filters">
-          <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search concepts, people or repos..." /></div>
-          <div class="filters"><button class="filter active" data-topic="All">All topics</button><button class="filter" data-topic="Core Java">Core Java</button><button class="filter" data-topic="Spring">Spring</button><button class="filter" data-topic="Data">Data</button><button class="filter" data-topic="Testing">Testing</button></div>
-        </section>
+        <div class="constellation" id="constellation">
+          <svg class="routes" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
+            <path class="route route-main" d="M130,230 C270,80 425,100 520,220 S750,360 880,190" />
+            <path class="route route-draft" d="M520,220 C670,85 770,105 880,190" />
+            <path class="route route-draft" d="M520,220 C660,310 760,330 880,300" />
+          </svg>
 
-        <section class="map-section" id="map">
-          <div class="section-heading"><div><p class="eyebrow">EXPLORE BY CONNECTION</p><h2>The learning map</h2></div><div class="legend"><span><i class="dot core"></i> Core Java</span><span><i class="dot spring"></i> Spring</span><span><i class="dot data"></i> Data</span><span><i class="dot test"></i> Testing</span></div></div>
-          <div class="map-card">
-            <svg class="connections" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M120,187 C220,70 307,84 390,142 S550,250 630,170 S780,65 880,110"/><path d="M120,187 C220,280 290,275 390,235 S530,180 630,170 S760,280 880,260"/><path d="M390,142 C470,72 572,75 630,170"/><path d="M390,235 C520,338 710,323 880,260"/>
-            </svg>
-            <button class="topic-node n1 core-node" data-node="Java Fundamentals"><span>☕</span><b>Java Fundamentals</b><small>18 materials</small></button>
-            <button class="topic-node n2 spring-node" data-node="Spring Boot"><span>✦</span><b>Spring Boot</b><small>16 materials</small></button>
-            <button class="topic-node n3 data-node" data-node="Databases"><span>◫</span><b>Databases</b><small>12 materials</small></button>
-            <button class="topic-node n4 test-node" data-node="Testing"><span>✓</span><b>Testing</b><small>9 materials</small></button>
-            <button class="topic-node n5 purple-node" data-node="Design Patterns"><span>◇</span><b>Design Patterns</b><small>14 materials</small></button>
-            <button class="topic-node n6 peach-node" data-node="APIs"><span>⌁</span><b>APIs</b><small>11 materials</small></button>
-            <div class="map-hint">Click a topic to focus its materials <span>→</span></div>
+          <a class="lab-node lab-live" href="https://github.com/Java-Grind/VirtualThread_Lab" target="_blank" rel="noreferrer">
+            <span class="node-number">LAB-001</span>
+            <span class="node-icon">⌁</span>
+            <strong>Virtual threads</strong>
+            <small>I/O и CPU-bound</small>
+            <b class="status">open</b>
+          </a>
+
+          <a class="action-node action-idea" href="https://github.com/Java-Grind/.github/issues/new" target="_blank" rel="noreferrer">
+            <span>01</span>
+            <strong>Есть вопрос?</strong>
+            <small>Откройте Issue</small>
+          </a>
+          <a class="action-node action-repo" href="https://github.com/Java-Grind" target="_blank" rel="noreferrer">
+            <span>02</span>
+            <strong>Сделайте опыт</strong>
+            <small>Код + README</small>
+          </a>
+          <a class="action-node action-pr" href="https://github.com/Java-Grind/.github/compare" target="_blank" rel="noreferrer">
+            <span>03</span>
+            <strong>Добавьте на карту</strong>
+            <small>Откройте PR</small>
+          </a>
+          <button class="map-toggle" type="button" aria-pressed="false">Показать маршрут <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="lab-detail">
+        <div class="detail-label">ОТКРЫТАЯ ЛАБОРАТОРНАЯ</div>
+        <div>
+          <p class="lab-id">LAB-001 <span>·</span> CONCURRENCY</p>
+          <h2>Virtual threads:<br />ожидание против вычислений.</h2>
+        </div>
+        <p class="detail-copy">Сравнение I/O-ожиданий и CPU-bound нагрузки на platform и virtual threads. Не готовый ответ, а точка для следующей проверки.</p>
+        <a class="text-link" href="https://github.com/Java-Grind/VirtualThread_Lab" target="_blank" rel="noreferrer">Открыть лабораторную <span>→</span></a>
+      </section>
+
+      <section class="contribute" id="contribute">
+        <div>
+          <p class="eyebrow">СЛЕДУЮЩИЙ УЗЕЛ</p>
+          <h2>Карта не заполняется<br />сама.</h2>
+        </div>
+        <div class="contribute-copy">
+          <p>Необязательно приходить с готовой лабораторной. Достаточно вопроса, гипотезы или желания улучшить существующий опыт.</p>
+          <div class="steps">
+            <span>Issue</span><i>→</i><span>Репозиторий</span><i>→</i><span>Pull Request</span>
           </div>
-        </section>
+          <a class="button button-primary" href="https://github.com/Java-Grind/.github/issues/new" target="_blank" rel="noreferrer">Начать с вопроса <span>↗</span></a>
+        </div>
+      </section>
+    </main>
 
-        <section class="discover" id="library">
-          <div class="section-heading"><div><p class="eyebrow">COMMUNITY COLLECTION</p><h2>Recently added</h2></div><a href="#all" class="see-all">See all material <span>→</span></a></div>
-          <div class="content-grid">
-            <article class="repo-card" data-tags="Spring APIs testing REST café manager anna spring boot">
-              <div class="card-top"><div class="repo-icon coral">⌁</div><button class="save">☆</button></div><span class="tag tag-spring">SPRING BOOT</span><h3>café-manager-api</h3><p>A clean REST API with validation, exception handling, and tests.</p><div class="card-foot"><div class="person"><div class="avatar avatar-coral">AS</div><span>Anna S.</span></div><span>↗ GitHub</span></div>
-            </article>
-            <article class="repo-card" data-tags="Core Java design patterns patterns task tracker maxim java">
-              <div class="card-top"><div class="repo-icon lavender">◇</div><button class="save">☆</button></div><span class="tag tag-core">CORE JAVA</span><h3>pattern-playground</h3><p>Small, visual examples of classic patterns in everyday Java.</p><div class="card-foot"><div class="person"><div class="avatar avatar-purple">MK</div><span>Maxim K.</span></div><span>↗ GitHub</span></div>
-            </article>
-            <article class="repo-card" data-tags="Data databases postgres jpa bookstore dasha sql">
-              <div class="card-top"><div class="repo-icon mint">◫</div><button class="save">☆</button></div><span class="tag tag-data">DATA &amp; JPA</span><h3>bookstore-schema</h3><p>From paper model to PostgreSQL schema, migrations, and queries.</p><div class="card-foot"><div class="person"><div class="avatar avatar-mint">DP</div><span>Dasha P.</span></div><span>↗ GitHub</span></div>
-            </article>
-          </div>
-        </section>
-      </main>
-    </div>
+    <footer>
+      <span>JAVA GRIND / COMMUNITY LABS</span>
+      <a href="../LABS.md">Открыть LABS.md ↗</a>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>

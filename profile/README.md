@@ -29,4 +29,4 @@
 
 ## В каталоге сейчас
 
-[LAB-001 · Virtual threads](labs/LAB-001-virtual-threads/README.md) — сравнение I/O-ожиданий и CPU-bound нагрузки на platform и virtual threads.
+[LAB-001 · Virtual threads](https://github.com/Java-Grind/VirtualThread_Lab) — сравнение I/O-ожиданий и CPU-bound нагрузки на platform и virtual threads.
