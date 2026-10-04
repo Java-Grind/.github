@@ -5,7 +5,7 @@ body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,ui
 a { color:inherit; }
 .site-header { height:72px; padding:0 clamp(20px,5vw,78px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
 .brand { text-decoration:none; display:flex; align-items:center; gap:10px; font-weight:850; letter-spacing:-.7px; }
-.brand-mark { width:29px; height:29px; display:grid; place-items:center; border-radius:50% 50% 50% 5px; background:var(--ink); color:var(--acid); font:italic 20px Georgia,serif; transform:rotate(-10deg); }
+.brand-mark { width:39px; height:39px; object-fit:contain; margin:-5px 0 -5px -4px; }
 nav { display:flex; align-items:center; gap:27px; font:700 12px var(--mono); }
 nav a { text-decoration:none; opacity:.75; } nav a:hover { opacity:1; }
 .github-link { border-bottom:1px solid var(--ink); padding-bottom:3px; opacity:1; }.github-link span { color:var(--orange); }
