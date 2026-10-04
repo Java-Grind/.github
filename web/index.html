@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaStudy · Community Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">J</span><span>javastudy</span></a>
+        <div class="workspace"><span>COMMUNITY SPACE</span><button aria-label="Switch space">⌄</button></div>
+        <nav>
+          <a class="nav-item active" href="#map"><span>⌘</span> Learning map</a>
+          <a class="nav-item" href="#library"><span>▣</span> Repository library <b>24</b></a>
+          <a class="nav-item" href="#members"><span>◉</span> Members</a>
+          <a class="nav-item" href="#paths"><span>↗</span> Study paths</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="group-label">YOUR SPACE</div>
+          <a class="nav-item" href="#saved"><span>☆</span> Saved material</a>
+          <a class="nav-item" href="#notes"><span>▤</span> My notes</a>
+          <div class="user"><div class="avatar avatar-iris">MT</div><div><strong>Mykyta T.</strong><small>Level 4 learner</small></div><button>•••</button></div>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="crumbs">COMMUNITY <span>/</span> LEARNING MAP</div>
+          <div class="top-actions"><button class="icon-button" aria-label="Notifications">◌</button><button class="invite">+ Invite learner</button></div>
+        </header>
+
+        <section class="hero">
+          <div><p class="eyebrow">THE SHARED JAVA GARDEN</p><h1>Find your next<br /><em>idea to explore.</em></h1><p class="hero-copy">A living map of what our community is building, learning, and explaining together.</p></div>
+          <div class="hero-stats"><div><strong>148</strong><span>learning notes</span></div><div><strong>24</strong><span>linked repos</span></div><div><strong>61</strong><span>active learners</span></div></div>
+        </section>
+
+        <section class="controls" aria-label="Topic filters">
+          <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search concepts, people or repos..." /></div>
+          <div class="filters"><button class="filter active" data-topic="All">All topics</button><button class="filter" data-topic="Core Java">Core Java</button><button class="filter" data-topic="Spring">Spring</button><button class="filter" data-topic="Data">Data</button><button class="filter" data-topic="Testing">Testing</button></div>
+        </section>
+
+        <section class="map-section" id="map">
+          <div class="section-heading"><div><p class="eyebrow">EXPLORE BY CONNECTION</p><h2>The learning map</h2></div><div class="legend"><span><i class="dot core"></i> Core Java</span><span><i class="dot spring"></i> Spring</span><span><i class="dot data"></i> Data</span><span><i class="dot test"></i> Testing</span></div></div>
+          <div class="map-card">
+            <svg class="connections" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M120,187 C220,70 307,84 390,142 S550,250 630,170 S780,65 880,110"/><path d="M120,187 C220,280 290,275 390,235 S530,180 630,170 S760,280 880,260"/><path d="M390,142 C470,72 572,75 630,170"/><path d="M390,235 C520,338 710,323 880,260"/>
+            </svg>
+            <button class="topic-node n1 core-node" data-node="Java Fundamentals"><span>☕</span><b>Java Fundamentals</b><small>18 materials</small></button>
+            <button class="topic-node n2 spring-node" data-node="Spring Boot"><span>✦</span><b>Spring Boot</b><small>16 materials</small></button>
+            <button class="topic-node n3 data-node" data-node="Databases"><span>◫</span><b>Databases</b><small>12 materials</small></button>
+            <button class="topic-node n4 test-node" data-node="Testing"><span>✓</span><b>Testing</b><small>9 materials</small></button>
+            <button class="topic-node n5 purple-node" data-node="Design Patterns"><span>◇</span><b>Design Patterns</b><small>14 materials</small></button>
+            <button class="topic-node n6 peach-node" data-node="APIs"><span>⌁</span><b>APIs</b><small>11 materials</small></button>
+            <div class="map-hint">Click a topic to focus its materials <span>→</span></div>
+          </div>
+        </section>
+
+        <section class="discover" id="library">
+          <div class="section-heading"><div><p class="eyebrow">COMMUNITY COLLECTION</p><h2>Recently added</h2></div><a href="#all" class="see-all">See all material <span>→</span></a></div>
+          <div class="content-grid">
+            <article class="repo-card" data-tags="Spring APIs testing REST café manager anna spring boot">
+              <div class="card-top"><div class="repo-icon coral">⌁</div><button class="save">☆</button></div><span class="tag tag-spring">SPRING BOOT</span><h3>café-manager-api</h3><p>A clean REST API with validation, exception handling, and tests.</p><div class="card-foot"><div class="person"><div class="avatar avatar-coral">AS</div><span>Anna S.</span></div><span>↗ GitHub</span></div>
+            </article>
+            <article class="repo-card" data-tags="Core Java design patterns patterns task tracker maxim java">
+              <div class="card-top"><div class="repo-icon lavender">◇</div><button class="save">☆</button></div><span class="tag tag-core">CORE JAVA</span><h3>pattern-playground</h3><p>Small, visual examples of classic patterns in everyday Java.</p><div class="card-foot"><div class="person"><div class="avatar avatar-purple">MK</div><span>Maxim K.</span></div><span>↗ GitHub</span></div>
+            </article>
+            <article class="repo-card" data-tags="Data databases postgres jpa bookstore dasha sql">
+              <div class="card-top"><div class="repo-icon mint">◫</div><button class="save">☆</button></div><span class="tag tag-data">DATA &amp; JPA</span><h3>bookstore-schema</h3><p>From paper model to PostgreSQL schema, migrations, and queries.</p><div class="card-foot"><div class="person"><div class="avatar avatar-mint">DP</div><span>Dasha P.</span></div><span>↗ GitHub</span></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
