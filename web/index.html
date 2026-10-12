@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Живая карта лабораторных Java Grind" />
     <title>Java Grind — карта лабораторных</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link id="favicon" rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="autumn-theme">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Java Grind — в начало">
-        <img class="brand-mark" src="assets/java-grind-mark.png" alt="" />
+        <img class="brand-mark brand-mark-classic" src="assets/java-grind-mark.png" alt="" />
+        <img class="brand-mark brand-mark-halloween" src="assets/java-grind-mark-halloween.png" alt="" />
         <span>Java Grind</span>
       </a>
       <nav aria-label="Основная навигация">
         <a href="#map">Карта</a>
         <a href="#contribute">Вклад</a>
+        <div class="theme-switch" role="group" aria-label="Тема оформления">
+          <button type="button" data-theme="classic">Классическая</button>
+          <button type="button" data-theme="autumn" class="active">Тематическая</button>
+        </div>
         <a class="github-link" href="https://github.com/Java-Grind" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
+        <div class="seasonal-decor" aria-hidden="true">
+          <i class="moon"></i>
+          <i class="bat bat-one"></i><i class="bat bat-two"></i>
+          <i class="leaf leaf-one"></i><i class="leaf leaf-two"></i><i class="leaf leaf-three"></i>
+        </div>
         <div class="hero-copy">
-          <p class="eyebrow"><span></span> ЖИВАЯ КАРТА СООБЩЕСТВА</p>
+          <p class="eyebrow"><span></span> ОСЕННЯЯ КАРТА СООБЩЕСТВА</p>
           <h1>Не курс.<br />А <em>следующий</em> опыт.</h1>
           <p class="lead">Java Grind собирает небольшие лабораторные с работающим кодом, наблюдениями и вопросами, которые хочется проверить дальше.</p>
           <div class="hero-actions">
@@ -51,10 +61,11 @@
 
         <div class="constellation" id="constellation">
           <svg class="routes" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true">
-            <path class="route route-main" d="M130,230 C270,80 425,100 520,220 S750,360 880,190" />
-            <path class="route route-draft" d="M520,220 C670,85 770,105 880,190" />
-            <path class="route route-draft" d="M520,220 C660,310 760,330 880,300" />
+            <path class="route route-main" d="M170,94 C245,94 325,124 390,154" />
+            <path class="route route-draft" d="M807,94 C740,108 680,132 620,158" />
+            <path class="route route-draft" d="M817,305 C748,317 676,320 620,300" />
           </svg>
+          <i class="map-pumpkin" aria-hidden="true"></i>
 
           <a class="lab-node lab-live" href="https://github.com/Java-Grind/VirtualThread_Lab" target="_blank" rel="noreferrer">
             <span class="node-number">LAB-001</span>

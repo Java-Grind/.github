@@ -6,9 +6,11 @@ a { color:inherit; }
 .site-header { height:72px; padding:0 clamp(20px,5vw,78px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
 .brand { text-decoration:none; display:flex; align-items:center; gap:10px; font-weight:850; letter-spacing:-.7px; }
 .brand-mark { width:39px; height:39px; object-fit:contain; margin:-5px 0 -5px -4px; }
+.brand-mark-halloween { display:none; }.autumn-theme .brand-mark-classic { display:none; }.autumn-theme .brand-mark-halloween { display:block; filter:drop-shadow(0 0 5px rgba(240,100,55,.45)); }
 nav { display:flex; align-items:center; gap:27px; font:700 12px var(--mono); }
 nav a { text-decoration:none; opacity:.75; } nav a:hover { opacity:1; }
 .github-link { border-bottom:1px solid var(--ink); padding-bottom:3px; opacity:1; }.github-link span { color:var(--orange); }
+.theme-switch { display:flex; padding:3px; border:1px solid var(--line); border-radius:4px; gap:2px; }.theme-switch button { border:0; background:transparent; color:var(--quiet); padding:6px 8px; border-radius:2px; cursor:pointer; font:700 10px var(--mono); }.theme-switch button.active { background:var(--ink); color:var(--paper); }
 .hero { min-height:550px; padding:clamp(64px,10vw,132px) clamp(20px,9vw,146px) 88px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(260px,.55fr); gap:70px; align-items:end; border-bottom:1px solid var(--line); }
 .eyebrow { margin:0 0 18px; color:var(--quiet); font:700 11px var(--mono); letter-spacing:1px; }.eyebrow span { width:8px; height:8px; display:inline-block; margin-right:7px; background:var(--orange); border-radius:50%; }
 h1,h2,p { margin-top:0; }.hero h1 { max-width:760px; margin-bottom:24px; font-size:clamp(48px,7vw,102px); line-height:.9; letter-spacing:-.075em; font-weight:850; }.hero h1 em { color:#637c6c; font-family:Georgia,serif; font-weight:400; letter-spacing:-.095em; }.lead { max-width:490px; color:#53645b; font-size:16px; line-height:1.65; }
@@ -23,3 +25,23 @@ h1,h2,p { margin-top:0; }.hero h1 { max-width:760px; margin-bottom:24px; font-si
 footer { padding:27px clamp(20px,5vw,78px); display:flex; justify-content:space-between; background:var(--ink); color:#b5c1b8; font:10px var(--mono); letter-spacing:.6px; } footer a { color:var(--acid); text-decoration:none; }
 @media (max-width:850px) { .hero,.map-section { grid-template-columns:1fr; }.hero { gap:58px; }.signal-card { max-width:290px; justify-self:end; }.map-section { gap:35px; }.lab-detail { grid-template-columns:1fr 1.3fr; }.detail-copy { grid-column:2; }.contribute { grid-template-columns:1fr; }.constellation { max-width:680px; width:100%; } }
 @media (max-width:580px) { .site-header { height:62px; }.site-header nav a:not(.github-link) { display:none; } .hero { min-height:auto; padding-bottom:75px; }.signal-card { justify-self:start; }.constellation { min-height:515px; }.lab-live { top:160px; left:calc(50% - 108px); }.action-idea { left:8%; top:46px; }.action-repo { right:5%; top:52px; }.action-pr { right:calc(50% - 72px); bottom:54px; }.lab-detail { grid-template-columns:1fr; gap:15px; }.detail-copy { grid-column:auto; }.contribute h2 { font-size:43px; } footer { gap:15px; flex-direction:column; } }
+
+/* October skin: a seasonal layer over the permanent Java Grind layout. */
+.autumn-theme { --ink:#f8ead8; --paper:#17100f; --acid:#ffbf3f; --orange:#f06437; --quiet:#bba596; --line:rgba(248,234,216,.18); background:#17100f; }
+.autumn-theme .site-header { background:#17100f; }
+.autumn-theme .hero { position:relative; overflow:hidden; background:radial-gradient(circle at 78% 24%,#5c3026 0,transparent 22%),radial-gradient(circle at 35% 115%,#55291f 0,transparent 30%),linear-gradient(115deg,#17100f 35%,#211513); }
+.autumn-theme .hero-copy,.autumn-theme .signal-card { z-index:1; }
+.autumn-theme .hero h1 em { color:#ff9c43; }.autumn-theme .lead { color:#d5baaa; }
+.autumn-theme .signal-card { background:#2c1717; border:1px solid rgba(255,191,63,.4); color:var(--ink); }.autumn-theme .signal-card small { color:#c7a69a; }
+.autumn-theme .map-section { background:radial-gradient(ellipse at 7% 90%,#42231d,transparent 26%),#251916; }.autumn-theme .section-intro>p:last-child { color:#cfb5a5; }
+.autumn-theme .constellation { border-color:rgba(255,191,63,.35); background-color:#120f11; background-image:radial-gradient(rgba(255,191,63,.25) 1px,transparent 1px); }
+.autumn-theme .constellation::before { content:""; position:absolute; z-index:0; right:-2px; top:-2px; width:150px; height:120px; opacity:.42; background:repeating-radial-gradient(circle at 100% 0,transparent 0 17px,#c99162 18px 19px,transparent 20px 34px); clip-path:polygon(0 0,100% 0,100% 100%); }
+.autumn-theme .route { stroke:#a46f51; }.autumn-theme .constellation.is-routed .route-draft { stroke:var(--acid); }
+.autumn-theme .action-node { background:#2b1d1b; border-color:#b07551; }.autumn-theme .action-node span { color:#e4a46d; }.autumn-theme .action-node small { color:#d0afa0; }
+.autumn-theme .contribute { background:#d86a31; color:#1a1010; }.autumn-theme .steps i { color:#ffdc71; }
+.seasonal-decor { display:none; position:absolute; inset:0; pointer-events:none; opacity:.86; }.autumn-theme .seasonal-decor { display:block; }.moon { position:absolute; right:15%; top:13%; width:88px; height:88px; border-radius:50%; background:#ffe6a3; box-shadow:0 0 0 17px rgba(255,193,67,.06),0 0 55px rgba(255,168,57,.18); }.moon::after { content:""; position:absolute; width:83px; height:83px; top:-13px; left:20px; border-radius:50%; background:#2a1818; }
+.bat { position:absolute; width:23px; height:10px; background:#100a0b; clip-path:polygon(0 45%,25% 0,50% 55%,75% 0,100% 45%,78% 100%,50% 70%,22% 100%); }.bat-one { top:22%; right:29%; transform:rotate(-12deg); }.bat-two { top:34%; right:8%; transform:scale(.6) rotate(9deg); }
+.leaf { position:absolute; width:19px; height:33px; border-radius:100% 0 100% 0; background:#b54928; box-shadow:inset -3px -2px 0 #762d22; transform:rotate(35deg); animation:drift 8s ease-in-out infinite; }.leaf-one { left:54%; top:12%; }.leaf-two { right:37%; bottom:15%; background:#e6a12e; animation-delay:-3s; }.leaf-three { left:12%; bottom:7%; width:13px; height:24px; background:#7a3829; animation-delay:-5s; }
+.map-pumpkin { display:none; }.autumn-theme .map-pumpkin { display:block; position:absolute; z-index:1; left:42px; bottom:38px; width:50px; height:43px; border-radius:44% 44% 48% 48%; background:repeating-linear-gradient(90deg,#d65a25 0 13px,#ec7b2d 14px 24px); box-shadow:0 0 25px rgba(237,123,45,.32),inset 0 -5px rgba(87,33,20,.25); }.autumn-theme .map-pumpkin::before { content:""; position:absolute; left:20px; top:-10px; width:10px; height:13px; border-radius:8px 2px 0 0; background:#79843a; transform:rotate(15deg); }.autumn-theme .map-pumpkin::after { content:"▲  ▲"; position:absolute; left:8px; top:14px; color:#2a1413; font:700 10px/1 var(--mono); letter-spacing:4px; }
+@keyframes drift { 50% { transform:translate(11px,22px) rotate(105deg); } }
+@media (max-width:580px) { .moon { right:5%; top:8%; transform:scale(.65); }.bat-two,.leaf-one,.map-pumpkin { display:none!important; } }
