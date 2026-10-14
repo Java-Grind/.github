@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Java Junior Interview: 18 вопросов с ответами и объяснениями для Java 21 и Spring Boot 3.x" />
+    <title>Java Junior Interview — Java Grind</title>
+    <link id="favicon" rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="sky-theme">
+    <div class="sky-bg" aria-hidden="true"><i class="cloud cloud-one"></i><i class="cloud cloud-two"></i><i class="cloud cloud-three"></i></div>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Java Grind — на главную"><span class="brand-orb"><img src="assets/java-grind-mark-blueprint.png" alt="" /></span><span><b>Java</b> Grind<small>community labs</small></span></a>
+      <nav aria-label="Основная навигация">
+        <a href="index.html#map">Лабораторные</a><a href="interview.html" aria-current="page">Интервью</a><a href="index.html#contribute">Сообщество</a>
+        <div class="theme-switch" role="group" aria-label="Цветовая схема сайта"><button type="button" data-theme="sky">Cobalt</button><button type="button" data-theme="cloud">Blueprint</button></div>
+        <a class="github-link" href="https://github.com/Java-Grind" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      </nav>
+    </header>
+    <main class="interview-page">
+      <div class="page-intro">
+        <p class="eyebrow"><span></span> JAVA 21 · SPRING BOOT 3.x</p>
+        <h1>Java Junior<br /><em>Interview</em></h1>
+        <p class="lead">18 вопросов для разговора, а не теста. Откройте карточку после своего ответа: внутри только ответ и объяснение того, как это работает.</p>
+      </div>
+      <section class="interview-grid" aria-label="Вопросы Java Junior Interview">
+        <h2 class="interview-group">01 / EQUALITY И HASHMAP</h2>
+        <details class="qa-card"><summary><span class="qa-number">01</span>Как связаны <code>equals()</code> и <code>hashCode()</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Если объекты равны по <code>equals()</code>, их <code>hashCode()</code> обязан совпадать; обратное неверно.</p><p><strong>Объяснение.</strong> Одинаковый хеш не является уникальным ID: возможны коллизии. <code>HashMap</code> сначала выбирает бакет по хешу, затем сравнивает ключи через <code>equals()</code>.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">02</span>Сколько <code>null</code> может хранить <code>HashMap</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Один ключ <code>null</code> и сколько угодно значений <code>null</code>.</p><p><strong>Объяснение.</strong> Ключи уникальны: повторный <code>put(null, value)</code> заменит прежнее значение. <code>ConcurrentHashMap</code> не разрешает <code>null</code> ни для ключей, ни для значений.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">03</span>Что происходит при множестве коллизий в <code>HashMap</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Длинная цепочка элементов в бакете может стать красно-чёрным деревом.</p><p><strong>Объяснение.</strong> Это снижает худший поиск с O(n) до O(log n). В Java 8+ переход зависит от длины цепочки и размера таблицы; это деталь реализации, не контракт API.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">04</span>Для чего нужен load factor?</summary><div class="qa-content"><p><strong>Ответ.</strong> Он определяет, когда таблицу нужно увеличить.</p><p><strong>Объяснение.</strong> При стандартном factor <code>0.75</code> у capacity 16 порог равен 12. Большее значение экономит память, но повышает вероятность коллизий.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">05</span>Почему <code>HashMap</code> не потокобезопасен?</summary><div class="qa-content"><p><strong>Ответ.</strong> Параллельные изменения могут потерять данные или показать неконсистентное состояние.</p><p><strong>Объяснение.</strong> <code>put()</code> состоит из нескольких действий: поиск бакета, изменение цепочки, иногда resize и публикация результата. Для конкурентной записи используйте подходящую синхронизацию или <code>ConcurrentHashMap</code>.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">06</span>Почему мутабельный ключ опасен для <code>HashMap</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Ключ может перестать находиться после изменения.</p><p><strong>Объяснение.</strong> Если изменить поле из <code>equals()</code>/<code>hashCode()</code>, объект останется в старом бакете, а поиск начнётся по новому хешу. Выбирайте immutable-ключи: <code>String</code>, <code>UUID</code>, <code>record</code>.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">07</span>Когда возникает <code>ConcurrentModificationException</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> При структурном изменении обычной коллекции во время fail-fast итерации не через сам итератор.</p><p><strong>Объяснение.</strong> В одном потоке удаляйте через <code>Iterator.remove()</code> или <code>removeIf</code>. Исключение не является гарантией потокобезопасности.</p></div></details>
+
+        <h2 class="interview-group">02 / CONCURRENCY И JMM</h2>
+        <details class="qa-card"><summary><span class="qa-number">08</span>Что гарантирует <code>volatile</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Видимость изменений и ограничения упорядочивания, но не атомарность составных операций.</p><p><strong>Объяснение.</strong> <code>volatile boolean running</code> подходит для флага. <code>counter++</code> — это чтение, вычисление и запись, поэтому нужен <code>AtomicInteger</code> или синхронизация.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">09</span>Что означает happens-before для <code>volatile</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Запись в volatile-переменную happens-before последующему чтению этой же переменной другим потоком.</p><p><strong>Объяснение.</strong> Это правило Java Memory Model обеспечивает наблюдаемость записанного состояния через volatile-флаг.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">10</span>Когда нужен <code>synchronized</code>, а когда <code>volatile</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> <code>volatile</code> — для видимости простого состояния, <code>synchronized</code> — для связанных операций.</p><p><strong>Объяснение.</strong> Проверка и изменение, например «если есть место, забронировать», должны выполняться атомарно; одного <code>volatile</code> здесь недостаточно.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">11</span>Чем <code>ConcurrentHashMap</code> отличается от <code>HashMap</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Он создан для безопасного конкурентного доступа.</p><p><strong>Объяснение.</strong> Современная реализация использует CAS и локальную синхронизацию. Последовательность <code>get()</code> + <code>put()</code> всё равно не атомарна: для неё есть <code>compute()</code> и <code>putIfAbsent()</code>.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">12</span>Чем <code>Callable</code> отличается от <code>Runnable</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> <code>Callable</code> возвращает результат и может бросать checked exceptions.</p><p><strong>Объяснение.</strong> <code>Runnable.run()</code> возвращает <code>void</code>. При отправке <code>Callable</code> в executor результат получают через <code>Future.get()</code>.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">13</span>Чем <code>shutdown()</code> отличается от <code>shutdownNow()</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Первый метод не принимает новые задачи и ждёт уже поданные; второй запрашивает немедленную остановку.</p><p><strong>Объяснение.</strong> <code>shutdownNow()</code> прерывает работающие потоки и возвращает невыполненные задачи, но задача должна сама корректно реагировать на interrupt.</p></div></details>
+
+        <h2 class="interview-group">03 / JAVA CORE И SPRING</h2>
+        <details class="qa-card"><summary><span class="qa-number">14</span>Чем overloading отличается от overriding?</summary><div class="qa-content"><p><strong>Ответ.</strong> Overloading выбирается компилятором по параметрам; overriding — во время выполнения по реальному типу объекта.</p><p><strong>Объяснение.</strong> Перегрузка — методы с одинаковым именем и разными списками параметров. Переопределение — новая реализация у подкласса; <code>static</code>, <code>private</code> и <code>final</code> методы не переопределяются.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">15</span>Что такое Dependency Injection в Spring?</summary><div class="qa-content"><p><strong>Ответ.</strong> Контейнер передаёт зависимости объекту вместо того, чтобы объект создавал их сам.</p><p><strong>Объяснение.</strong> Предпочтительна constructor injection: обязательные зависимости видны в сигнатуре и класс проще тестировать. В Spring Boot 3.x при единственном конструкторе <code>@Autowired</code> не нужен.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">16</span>Чем отличаются <code>@Component</code>, <code>@Service</code> и <code>@Repository</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Это стереотипы компонентов Spring с разной ролью.</p><p><strong>Объяснение.</strong> Все находятся component scan. <code>@Service</code> обозначает бизнес-логику, <code>@Repository</code> — слой данных и перевод persistence-исключений, <code>@Component</code> — общий вариант.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">17</span>Что объединяет <code>@SpringBootApplication</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> Конфигурацию, component scanning и auto-configuration.</p><p><strong>Объяснение.</strong> Это композиция <code>@SpringBootConfiguration</code>, <code>@EnableAutoConfiguration</code> и <code>@ComponentScan</code>. Поэтому главный класс обычно размещают в корневом пакете.</p></div></details>
+        <details class="qa-card"><summary><span class="qa-number">18</span>Чем <code>BeanFactory</code> отличается от <code>ApplicationContext</code>?</summary><div class="qa-content"><p><strong>Ответ.</strong> <code>BeanFactory</code> — минимальный IoC-контейнер; <code>ApplicationContext</code> — более функциональная надстройка.</p><p><strong>Объяснение.</strong> Контекст добавляет события, ресурсы, i18n, environment и обычную инфраструктуру Spring. В Spring Boot-приложении используют именно <code>ApplicationContext</code>.</p></div></details>
+      </section>
+      <a class="button button-quiet interview-return" href="index.html">← На главную Java Grind</a>
+    </main>
+    <footer><span>JAVA GRIND / COMMUNITY LABS / EST. IN CURIOSITY</span><a href="../LABS.md">Открыть LABS.md ↗</a></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

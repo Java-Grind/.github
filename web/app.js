@@ -3,13 +3,15 @@ const mapToggle = document.querySelector('.map-toggle');
 const themeButtons = document.querySelectorAll('[data-theme]');
 const favicon = document.querySelector('#favicon');
 
-mapToggle.addEventListener('click', () => {
-  const routed = constellation.classList.toggle('is-routed');
-  mapToggle.setAttribute('aria-pressed', String(routed));
-  mapToggle.innerHTML = routed
-    ? 'Скрыть маршрут <span>←</span>'
-    : 'Показать маршрут <span>→</span>';
-});
+if (mapToggle && constellation) {
+  mapToggle.addEventListener('click', () => {
+    const routed = constellation.classList.toggle('is-routed');
+    mapToggle.setAttribute('aria-pressed', String(routed));
+    mapToggle.innerHTML = routed
+      ? 'Скрыть маршрут <span>←</span>'
+      : 'Показать маршрут <span>→</span>';
+  });
+}
 
 function setTheme(theme) {
   const cloudMode = theme === 'cloud';
