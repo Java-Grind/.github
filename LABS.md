@@ -10,6 +10,8 @@
 | --- | --- | --- |
 | [LAB-001 · Virtual threads](https://github.com/Java-Grind/VirtualThread_Lab) | Сравнение I/O-ожиданий и CPU-bound нагрузки на platform и virtual threads. `java` `concurrency` `performance` | `open` |
 | [LAB-002 · CompletableFuture](https://github.com/Java-Grind/CompletableFuture_Lab) | Независимые async-операции, composition, ошибки и выбор executor. `java` `concurrency` `async` | `open` |
+| [LAB-003 · Java Streams](https://github.com/Java-Grind/Java_Streams_Lab) | Конвейеры коллекций, ленивость, grouping и границы parallelStream. `java` `collections` `streams` | `open` |
+| [LAB-004 · Java Records](https://github.com/Java-Grind/Java_Records_Lab) | Неизменяемые данные, инварианты, value semantics и pattern matching. `java` `records` `language` | `open` |
 
 ## Через GitHub
 
