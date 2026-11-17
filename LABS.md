@@ -9,6 +9,7 @@
 | Лабораторная | О чём | Статус |
 | --- | --- | --- |
 | [LAB-001 · Virtual threads](https://github.com/Java-Grind/VirtualThread_Lab) | Сравнение I/O-ожиданий и CPU-bound нагрузки на platform и virtual threads. `java` `concurrency` `performance` | `open` |
+| [LAB-002 · CompletableFuture](https://github.com/Java-Grind/CompletableFuture_Lab) | Независимые async-операции, composition, ошибки и выбор executor. `java` `concurrency` `async` | `open` |
 
 ## Через GitHub
 
